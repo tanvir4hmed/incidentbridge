@@ -1,0 +1,12 @@
+{
+  "event_id": "smoke-001",
+  "household_id": "demo-home",
+  "occurred_at": "2026-09-17T00:00:00Z",
+  "source": {
+    "source_id": "sensor-kitchen",
+    "simulated": true,
+    "category": "sensor"
+  },
+  "kind": "smoke",
+  "observation": "Synthetic smoke alarm active"
+}

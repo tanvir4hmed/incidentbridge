@@ -1,0 +1,2 @@
+{"event_id":"smoke-001","household_id":"demo-home","occurred_at":"2026-09-17T00:00:00Z","source":{"source_id":"sensor-kitchen","simulated":true,"category":"sensor"},"kind":"smoke","observation":"Synthetic smoke alarm active"}
+{"event_id":"motion-001","household_id":"demo-home","occurred_at":"2026-09-17T00:00:00Z","source":{"source_id":"camera-hall","simulated":true,"category":"camera"},"kind":"motion","observation":"Synthetic hallway motion; occupancy unknown"}
