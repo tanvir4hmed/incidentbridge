@@ -23,6 +23,7 @@ jobs:
       - run: mypy src
       - run: pytest -q
       - run: python -m build
+      - run: python -m pip freeze > dist/ci-dependencies.txt
       - name: Clean wheel installation and CLI verification
         run: |
           python -m venv /tmp/incidentbridge-smoke

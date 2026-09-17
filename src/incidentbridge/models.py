@@ -1,6 +1,6 @@
 """Small, versioned event contract. Observations never authorize actions."""
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Annotated, Literal
 
 from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, StrictBool, field_validator
@@ -41,7 +41,7 @@ class IncidentEvent(Contract):
     @field_validator("occurred_at")
     @classmethod
     def utc_timestamp(cls, value: datetime) -> datetime:
-        return value.astimezone(timezone.utc)
+        return value.astimezone(UTC)
 
     @field_validator("observation")
     @classmethod
