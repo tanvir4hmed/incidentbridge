@@ -1,5 +1,7 @@
 # Build Evidence
 
+Release: [v0.1.0](https://github.com/tanvir4hmed/incidentbridge/releases/tag/v0.1.0), from commit `53ab20a`. [Final CI](https://github.com/tanvir4hmed/incidentbridge/actions/runs/35174519957) passed on all three Python versions, including exported-schema consistency. Wheel, source archive, schema and dependency inventory are attached to the release.
+
 Record completed work and immutable evidence as it occurs. Do not represent the plan as released functionality.
 
 | Date | Commit, release or URL | Verified result | Relevance |

@@ -9,3 +9,5 @@ IncidentBridge is a new open-source project created during the Amazon App Dev Ch
 | 2026-09-17 | [Phase 1 CI](https://github.com/tanvir4hmed/incidentbridge/actions/runs/35174409548) | Event model, adapters, CLI, idempotency/safety helpers and 35 passing tests verified on three Python versions |
 
 Implementation commits, test evidence, the first clean-install result, and the `v0.1.0` release URL will be added as they occur.
+
+Phase 1 release: [v0.1.0](https://github.com/tanvir4hmed/incidentbridge/releases/tag/v0.1.0), published 17 September 2026 after [final CI verification](https://github.com/tanvir4hmed/incidentbridge/actions/runs/35174519957).
