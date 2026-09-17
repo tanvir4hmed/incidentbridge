@@ -1,0 +1,102 @@
+{
+  "$defs": {
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "enum": [
+            "sensor",
+            "camera",
+            "household",
+            "device",
+            "weather"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "simulated": {
+          "title": "Simulated",
+          "type": "boolean"
+        },
+        "source_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Source Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "simulated",
+        "category"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "event_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "household_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Household Id",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "smoke",
+        "carbon_monoxide",
+        "water_leak",
+        "medical_sos",
+        "severe_weather",
+        "motion",
+        "doorbell",
+        "package",
+        "vehicle",
+        "person_status",
+        "device_status"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "observation": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "title": "Observation",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    }
+  },
+  "required": [
+    "event_id",
+    "household_id",
+    "occurred_at",
+    "source",
+    "kind",
+    "observation"
+  ],
+  "title": "IncidentEvent",
+  "type": "object"
+}
