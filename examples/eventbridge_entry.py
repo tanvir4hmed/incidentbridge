@@ -11,8 +11,10 @@ def eventbridge_entry(payload: object, bus_name: str) -> dict[str, str]:
         "EventBusName": bus_name,
         "Source": "aenea.incidentbridge",
         "DetailType": "IncidentEvent",
-        "Detail": json.dumps({
-            "event": event.model_dump(mode="json"),
-            "idempotency_key": idempotency_key(event),
-        }),
+        "Detail": json.dumps(
+            {
+                "event": event.model_dump(mode="json"),
+                "idempotency_key": idempotency_key(event),
+            }
+        ),
     }

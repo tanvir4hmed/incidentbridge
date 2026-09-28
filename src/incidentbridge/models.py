@@ -5,10 +5,21 @@ from typing import Annotated, Literal
 
 from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, StrictBool, field_validator
 
-Identifier = Annotated[str, Field(strict=True, min_length=1, max_length=128, pattern=r"^[A-Za-z0-9][A-Za-z0-9_.:-]*$")]
+Identifier = Annotated[
+    str, Field(strict=True, min_length=1, max_length=128, pattern=r"^[A-Za-z0-9][A-Za-z0-9_.:-]*$")
+]
 EventKind = Literal[
-    "smoke", "carbon_monoxide", "water_leak", "medical_sos", "severe_weather",
-    "motion", "doorbell", "package", "vehicle", "person_status", "device_status",
+    "smoke",
+    "carbon_monoxide",
+    "water_leak",
+    "medical_sos",
+    "severe_weather",
+    "motion",
+    "doorbell",
+    "package",
+    "vehicle",
+    "person_status",
+    "device_status",
 ]
 
 
@@ -34,7 +45,7 @@ class IncidentEvent(Contract):
     @field_validator("occurred_at", mode="before")
     @classmethod
     def reject_numeric_timestamp(cls, value: object) -> object:
-        if not isinstance(value, (str, datetime)):
+        if not isinstance(value, str | datetime):
             raise ValueError("timestamp must be an ISO 8601 string or aware datetime")
         return value
 

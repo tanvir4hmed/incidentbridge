@@ -1,0 +1,6 @@
+# Pinned direct check tools; runtime dependency ranges remain in pyproject.toml.
+ruff==0.12.12
+mypy==1.18.2
+pytest==8.4.2
+build==1.3.0
+jsonschema==4.25.1

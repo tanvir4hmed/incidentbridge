@@ -36,17 +36,20 @@ def test_required_fields(field):
         validate_event(data)
 
 
-@pytest.mark.parametrize("mutation", [
-    {"event_id": 123},
-    {"event_id": "bad/id"},
-    {"occurred_at": "2026-09-17T00:00:00"},
-    {"occurred_at": 1234},
-    {"schema_version": "2.0"},
-    {"kind": "unlock_door"},
-    {"observation": " "},
-    {"observation": "x" * 1001},
-    {"secret": "unwanted"},
-])
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        {"event_id": 123},
+        {"event_id": "bad/id"},
+        {"occurred_at": "2026-09-17T00:00:00"},
+        {"occurred_at": 1234},
+        {"schema_version": "2.0"},
+        {"kind": "unlock_door"},
+        {"observation": " "},
+        {"observation": "x" * 1001},
+        {"secret": "unwanted"},
+    ],
+)
 def test_rejects_invalid_contract(mutation):
     data = payload()
     data.update(mutation)
