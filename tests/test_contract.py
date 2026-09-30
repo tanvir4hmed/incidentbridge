@@ -124,6 +124,15 @@ def test_sensor_adapter():
     assert normalize_event(payload(), "sensor").kind == "smoke"
 
 
+@pytest.mark.parametrize(
+    "kind", ["heat", "gas_leak", "security_alarm", "forced_entry", "glass_break"]
+)
+def test_expanded_safety_and_security_signal_kinds(kind):
+    data = payload()
+    data["kind"] = kind
+    assert normalize_event(data, "sensor").kind == kind
+
+
 def test_sensor_rejects_camera():
     data = payload()
     data["source"]["category"] = "camera"

@@ -20,7 +20,24 @@ class WebhookAdapter:
 class SensorAdapter:
     """Canonical sensor observations, including explicitly marked simulations."""
 
-    kinds = frozenset({"smoke", "carbon_monoxide", "water_leak", "medical_sos"})
+    kinds = frozenset(
+        {
+            "smoke",
+            "carbon_monoxide",
+            "water_leak",
+            "medical_sos",
+            "heat",
+            "gas_leak",
+            "freeze_risk",
+            "power_outage",
+            "contact_open",
+            "forced_entry",
+            "glass_break",
+            "security_alarm",
+            "tamper",
+            "lock_tamper",
+        }
+    )
 
     def normalize(self, payload: object) -> IncidentEvent:
         event = validate_event(payload)
@@ -32,7 +49,7 @@ class SensorAdapter:
 class CameraSimulatorAdapter:
     """Synthetic camera context only; motion never proves occupancy."""
 
-    kinds = frozenset({"motion", "doorbell", "package", "vehicle"})
+    kinds = frozenset({"motion", "doorbell", "package", "vehicle", "person_detected"})
 
     def normalize(self, payload: object) -> IncidentEvent:
         event = validate_event(payload)
