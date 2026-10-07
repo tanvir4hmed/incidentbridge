@@ -18,7 +18,7 @@ Safety metadata labels all events unverified and never authorizes device actions
 
 See `examples/eventbridge_entry.py`. It creates a PutEvents entry without importing an AWS SDK. The integration owns authentication, bus selection, payload limits, deduplication and delivery retries, including individual failed entries returned by PutEvents.
 
-Aenea will pin the tested release when its ingress is implemented in Phase 3. No live Aenea runtime integration is claimed by this package release.
+[Aenea](https://github.com/tanvir4hmed/aenea) imports and calls IncidentBridge for event normalization, validation, retry identity and digest handling. Its version 1.1 outer envelope supplies device state and trusted catalog/location context; the embedded IncidentBridge event remains version 1.0. Incident routing, model assessment, scheduling, authentication and durable storage belong to the consuming application. Toolkit changes are required when that shared contract or its supported signals change, rather than whenever Aenea's interface changes.
 
 ## CLI semantics
 
